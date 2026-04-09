@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Ticket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="museum.js"></script>
+
+</head>
+<body>
+
+    <!-- Ticket buying section -->
+     <div class="booth-wrapper">
+        <div class="ticket-container">
+            <h2>Museum Ticket</h2>
+            <div class="event-info">
+                Welcome to Culture Vulture Museum <br>
+                By: Aurora Oh & Nancy He <br>
+                Price: $10 per ticket
+            </div>
+
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+        <label for="identity">Are you a person of colour?</label>
+                <select id="identity">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                
+                </select>
+            <select id="quantity">
+                <option value="1">1 Ticket</option>
+                <option value="2">2 Tickets</option>
+                <option value="3">3 Tickets</option>
+                <option value="4">4 Tickets</option>
+                <option value="5">5 Tickets</option>
+            </select>
+
+            <div class="total">Total: $<span id="totalPrice">10</span></div>
+
+            <button id="buyButton">Buy Ticket</button>
+        </div>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <h3>✅ Purchase Details</h3>
+        <p id="confirmationMessage"></p>
+        <div style="margin: 20px 0;">
+            <img src="assets/image/ticket.png" alt="Ticket" style="width: 300px;">
+        </div>
+        <button id="enterMuseumButton">
+            Welcome to our museum
+        </button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

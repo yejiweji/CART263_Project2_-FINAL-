@@ -1,0 +1,485 @@
+/* BODY */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Spartan', sans-serif;
+}
+
+/* WRAPPERS */
+.outer_wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style:auto;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 600vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+
+/* TICKETING BOARD */
+#ticket_board {
+  width: 38vw;
+  color: rgb(222, 214, 249);
+  padding: 3vh 1vw;
+  position: absolute;       /* allows you to place it anywhere over the wall */
+  font-family: 'Spartan', sans-serif; /* font style */
+  font-size: 2vw;         /* font size (responsive to viewport width) */
+  text-align: left;      
+  padding: 5px 10px;        /* space around the text */
+  bottom: 800px;
+  top: 45px;
+}
+
+#arrow_text {
+  font-size: 20px;
+  color: rgb(222, 214, 249);
+  font-weight:500;
+  text-align: right;
+}
+/* GALLERY WALLS */
+.wall {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-size: 100vw 100vh;
+}
+.ticket_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/ticket_booth_wall.png");
+}
+.plain_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/plain_wall.png");
+}
+.right_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/right_wall.png");
+}
+.left_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/left_wall.png");
+}
+.mid_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/mid_wall.png");
+}
+.door_wall {
+  background-image: url("https://yejiweji.github.io/yejinoh/src/portfolio_website/door_wall.png");
+}
+
+/* SECURITY POLES */
+.pole, .poles {
+  height: 30vh;
+  bottom: 26vh;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 1;
+}
+#poles_1 {
+  width: 80vw;
+  left: 58vw;
+}
+#poles_2 {
+  width: 90vw;
+  right: -40vw;
+}
+#poles_3 {
+  width: 70vw;
+  left: 15vw;
+}
+#poles_4 {
+  width: 94vw;
+  left: 0;
+}
+#pole_1 {
+  width: 28vw;
+  left: calc(30vw + 2vw);
+}
+#pole_2 {
+  width: 28vw;
+  right: calc(-10vw);
+}
+#pole_3 {
+  width: 28vw;
+  left: calc(30vw + 3vw);
+}
+
+/* PODIUM */
+.podium {
+  height: 50vh;
+  width: 20vw;
+  position: absolute;
+  bottom: -1vh;
+  left: 37vw;
+}
+
+/* LIGHTS */
+.lights {
+  height: 10vh;
+  width: 25vw;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.lights img {
+  width: 100%;
+}
+.lights:before {
+  content: "";
+  height: 5vh;
+  width: 18vw;
+  background: #fef0c8;
+  opacity: 0.3;
+  border-radius: 70%;
+  display: block;
+  position: inherit;
+  top: 40px;
+  right: 2.5vw;
+  -webkit-box-shadow: 0 0 15px 15px #fef0c8;
+  -moz-box-shadow: 0 0 15px 15px #fef0c8;
+  box-shadow: 0 0 15px 15px #fef0c8;
+  animation: glow 1.4s linear infinite alternate;
+}
+@keyframes glow {
+  to {
+    -webkit-box-shadow: 0 0 60px 60px #fef0c8;
+    -moz-box-shadow: 0 0 60px 60px #fef0c8;
+    box-shadow: 0 0 60px 60px #fef0c8;
+  }
+}
+#lights_1 { left: calc(5vw + 0vw); }
+#lights_2 { left: calc(40vw + 45vw / 4); }
+#lights_3 { left: 0; }
+#lights_4 { left: 23vw; }
+#lights_5 { right: 1.5vw; }
+#lights_6 { left: calc(32vw + 0.5vw); }
+#lights_7 { right: calc(2vw + 2vw); }
+#lights_8 { left: calc(14vw + 0vw); }
+#lights_9 { left: calc(45vw - 7.5vw); }
+#lights_10 { right: calc(15vw - 1vw); }
+#lights_11 { left: 5vw; }
+#lights_12 { left: 36vw; }
+#lights_13 { left: 67vw; }
+#lights_14 { left: 35vw; }
+#lights_15 { right: -10vw; }
+#lights_16 { left: calc(30vw + 6vw); }
+
+/* EXIT DOOR */
+.door {
+  width: 14vw;
+  height: 50vh;
+  position: absolute;
+  right: 3vw;
+  bottom: 35vh;
+}
+.door_sign {
+  text-transform: uppercase;
+  color: rgb(255, 0, 0);
+  font-size: 2.5vw;
+  text-align: center;
+}
+.exit_sign {
+  font-weight: bolder;
+}
+.door:hover .exit_sign {
+  display: none;
+}
+.thank_you_sign {
+  color: white;
+  font-size: 1.5vw;
+  display: none;
+}
+.door:hover .thank_you_sign {
+  display: unset;
+}
+
+/* MANNEQUINS */
+
+.title_mannequin_text{
+  position: absolute;       /* allows you to place it anywhere over the wall */
+  color: rgb(243, 146, 98);             /* text color */
+  font-family: 'Protest Revolution', sans-serif; /* Google Font */
+  font-size: 1.2vw;         /* font size (responsive to viewport width) */
+  text-align: center;       /* center-align text */
+  background: rgba(114, 0, 0, 0.829); /* semi-transparent background */
+  padding: 5px 10px;        /* space around the text */
+  border-radius: 5px;       /* rounded corners */
+  bottom: 700px;
+  left: -440px;
+
+  border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
+  box-shadow: 5px 5px 15px rgba(106, 0, 0, 0.7); /* drop shadow */
+}
+
+.sale_mannequin_text{
+  position: absolute;       /* allows you to place it anywhere over the wall */
+  color: rgb(243, 146, 98);             /* text color */
+  font-family: 'Protest Revolution', sans-serif; /* Google Font */
+  font-size: 1.2vw;         /* font size (responsive to viewport width) */
+  text-align: center;       /* center-align text */
+  background: rgba(204, 2, 2, 0.674); /* semi-transparent background */
+  padding: 5px 10px;        /* space around the text */
+  border-radius: 5px;       /* rounded corners */
+  bottom: 700px;
+  left: 560px;
+
+  border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
+  box-shadow: 5px 5px 15px rgba(66, 2, 2, 0.7); /* drop shadow */
+}
+
+#qipao_mannequin{
+  position: absolute;
+  width: auto;
+  height: 70vh;       
+  bottom: 250px;  
+  left: -135px;       
+}
+
+#hanbok_mannequin {
+  position: absolute;
+  width: auto;
+  height: 105vh;   
+  bottom: 89px;  
+  left: 590px;      
+}
+
+.protest-revolution-regular {
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.frame_text {
+  position: absolute;       /* allows you to place it anywhere over the wall */
+  color: rgba(255, 166, 125, 0.9);             /* text color */
+  font-family: 'Protest Revolution', sans-serif; /* Google Font */
+  font-size: 2vw;         /* font size (responsive to viewport width) */
+  text-align: left;       /* align text */
+  background: rgba(114, 0, 0, 0.829); /* semi-transparent background */
+  padding: 100px 8px;        /* space around the text */
+  border-radius: 3px;       /* rounded corners */
+  
+  bottom: 460px;
+  left: 1560px;
+
+  border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
+  box-shadow: 5px 5px 15px rgba(102, 0, 0, 0.429); /* drop shadow */
+}
+
+
+#frame_square{
+  position: absolute;
+  width: auto;
+  height: 70vh;       
+  bottom: 300px;  
+  left: -50px;       
+}
+
+#square_frame_image{
+  position: absolute;
+  width: 488px;
+  height: 374px;       
+  bottom: 517px;  
+  left: 209px; 
+}
+
+#frame_circle{
+  position: absolute;
+  width: auto;
+  height: 60vh;       
+  bottom: 340px;  
+  left: 1150px; 
+}
+/* add blur psy image*/
+#circle_frame_image{
+  position: absolute;
+  width: auto;
+  height: 37vh;       
+  bottom: 425px;  
+  left: 1430px; 
+}
+
+/* Shared container styles */
+.door-container {
+  position: absolute;
+  height: 80vh;       
+  bottom: 255px;     
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* Positioning for the Korean door */
+#korean-door-box {
+  left: 75px;
+  width: 20vw;
+}
+/* Update your korean_store rule */
+#korean_store {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  z-index: 10;
+  display: none;
+}
+/* Positioning for the Chinese door */
+#chinese-door-box {
+  left: 900px; 
+  width: 20vw;
+}
+
+/* Common image styles for all doors */
+#korean_door, #korean_door_open,
+#chinese_door, #chinese_door_open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hide the open versions by default */
+#korean_door_open, #chinese_door_open {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hover logic for Korean door */
+#korean-door-box:hover #korean_door {
+  opacity: 0;
+}
+#korean-door-box:hover #korean_door_open {
+  opacity: 1;
+}
+
+/* Hover logic for Chinese door */
+#chinese-door-box:hover #chinese_door {
+  opacity: 0;
+}
+#chinese-door-box:hover #chinese_door_open {
+  opacity: 1;
+}
+
+
+#frame_square2{
+  position: absolute;
+  width: auto;
+  height: 50vh;       
+  bottom: 380px;  
+  left: 180px;       
+}
+
+#square2_frame_image{
+  position: absolute;
+  width: auto;
+  height: 30vh;       
+  bottom: 500px;  
+  left: 375px; 
+}
+
+#frame_circle2{
+  position: absolute;
+  width: auto;
+  height: 60vh;       
+  bottom: 340px;  
+  left: 540px;       
+}
+
+/* add blur squidgames image*/
+#circle2_frame_image{
+  position: absolute;
+  width: auto;
+  height: 37vh;       
+  bottom: 425px;  
+  left: 820px; 
+}
+
+#frame_square3{
+  position: absolute;
+  width: auto;
+  height: 50vh;       
+  bottom: 380px;  
+  left: 1040px;       
+}
+
+#square3_frame_image{
+  position: absolute;
+  width: auto;
+  height: 25vh;       
+  bottom: 550px;  
+  left: 1220px; 
+}
+
+#korean_store_image{
+  position: absolute;
+  width: auto;
+  height: 12vh;       
+  bottom: -120px;  
+  left: -820px;       
+
+}
+
+#frame_square4{
+  position: absolute;
+  width: auto;
+  height: 75vh;       
+  bottom: 289px;  
+  left: 450px;       
+}
+
+#square4_frame_image{
+  position: absolute;
+  width: auto;
+  height: 35vh;       
+  bottom: 550px;  
+  left: 747px; 
+}
+
+/* adding the blur effect*/
+/* Update these in your museum/index.css */
+#hanbok_mannequin, 
+#qipao_mannequin, 
+#mannequin, 
+#mannequin_sit {
+  transition: filter 0.3s ease;
+}
+
+#hanbok_mannequin:hover, 
+#qipao_mannequin:hover {
+  filter: blur(10px); 
+}
+/* Target all images that are placed inside frames */
+#square_frame_image, 
+#circle_frame_image, 
+#square2_frame_image, 
+#circle2_frame_image, 
+#square3_frame_image, 
+#square4_frame_image {
+  transition: filter 0.3s ease;
+}
+
+#square_frame_image:hover, 
+#circle_frame_image:hover, 
+#square2_frame_image:hover, 
+#circle2_frame_image:hover, 
+#square3_frame_image:hover, 
+#square4_frame_image:hover {
+  filter: blur(10px);
+}
+
+#korean_gentrified{
+  position: absolute;
+  width: auto;
+  height: 75vh;       
+  bottom: 324px;  
+  left: -480px;       
+}

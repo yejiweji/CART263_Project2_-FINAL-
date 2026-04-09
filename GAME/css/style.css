@@ -1,0 +1,107 @@
+/* Container for the booth image */
+.booth-wrapper {
+    background-image: url('../assets/image/ticketbooth.png');
+    background-size: cover;
+    background-color: #2a2718;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 178vh; /* Adjust based on your image aspect ratio */
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Adjust the existing container to fit the booth "screen" */
+.ticket-container {
+    background: rgba(16, 13, 41, 0.045);
+    padding: 20px;
+    border-radius: 4px; /* Squarer corners to match the screen */
+    width: 480px;      /* Adjust width to fit the black screen area */
+    height: 400px;     /* Adjust height to fit the black screen area */
+    box-shadow: none;  /* Remove shadow so it looks like it's inside the screen */
+    overflow-y: auto;  /* Allows scrolling if content is too long for the screen */
+    
+    /* Center it slightly higher to align with the booth screen */
+    margin-top: -80px; 
+}
+
+h2 {
+    text-align: center;
+    color:#ffffff;
+    margin-bottom: 10px;
+}
+
+.event-info {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.total {
+    font-weight: bold;
+    margin: 10px 0;
+    color:#df0a0a;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #bc191e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #bc191e;
+}
+
+#enterMuseumButton {
+    background: #e9cb44;
+    color: #100d29;    
+    font-weight: bold;
+    margin-top: 10px;
+    border: 2px solid #bc191e; 
+}
+
+#enterMuseumButton:hover {
+    background: #d4b83b; 
+    cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: rgb(233, 203, 68);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 15% auto;
+    text-align: center;
+}
+
+label {
+    color: white;
+}
