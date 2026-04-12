@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2. Logic for clicking "Welcome to our museum" (The Redirect)
     enterButton.addEventListener("click", function() {
-        window.location.href = "museum/index.html"; // Ensure this folder exists
+        window.location.href = "museum/index.html"; 
     });
 
 });
