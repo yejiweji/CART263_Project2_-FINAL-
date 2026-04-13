@@ -6,26 +6,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="giftshop.css">
 </head>
-
 <body>
 
-<h1 class="title">MUSEUM GIFT SHOP</h1>
-
-<div id="claw-machine">
-  <div class="glass-area">
-      <div id="phaser-game"></div>
-  </div>
-
-  <!-- CLICK CONTROLS -->
-  <div class="controls">
-      <button id="leftBtn">◀</button>
-      <button id="dropBtn">DROP</button>
-      <button id="rightBtn">▶</button>
+<div class="arcade-container">
+  <h1 class="title">MUSEUM GIFT SHOP</h1>
+  <div id="claw-machine">
+    <div class="glass-area">
+        <div id="phaser-game"></div>
+    </div>
+    <div class="machine-body">
+        <div class="prize-chute"></div>
+        <div class="dashboard">
+            <div class="ui-display">
+                <span id="coinCount">🪙 Coins: 10</span>
+                <span id="timerText"></span>
+            </div>
+            <div class="controls">
+                <button id="leftBtn" class="nav-btn">◀</button>
+                <button id="dropBtn" class="grab-btn">GRAB</button>
+                <button id="rightBtn" class="nav-btn">▶</button>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.js"></script>
 <script src="phaserClaw.js"></script>
-
 </body>
 </html>
