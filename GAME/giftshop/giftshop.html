@@ -1,37 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gift Shop — Culture Vulture Museum</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="giftshop.css">
-  </head>
+<head>
+  <title>Museum Gift Shop</title>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="giftshop.css">
+</head>
 
-  <body>
-    <div class="museum-header">
-        <h1 class="protest-revolution-regular">MUSEUM GIFT SHOP</h1>
-        <p>Win a souvenir to take home!</p>
-    </div>
+<body>
 
-    <div id="claw-machine">
-        <div class="machine-top"></div>
-        <div class="machine-body">
-            <div class="glass-area">
-                <div id="claw"></div>
-                <div class="prizes" id="prize-container">
-                    </div>
-            </div>
-        </div>
-        <div class="controls">
-            <button id="move-left">◀</button>
-            <button id="drop-claw">CATCH</button>
-            <button id="move-right">▶</button>
-        </div>
-    </div>
+<h1 class="title">MUSEUM GIFT SHOP</h1>
 
-    <script src="giftshop.js"></script>
-  </body>
+<div id="claw-machine">
+  <div class="glass-area">
+      <div id="phaser-game"></div>
+  </div>
+
+  <!-- CLICK CONTROLS -->
+  <div class="controls">
+      <button id="leftBtn">◀</button>
+      <button id="dropBtn">DROP</button>
+      <button id="rightBtn">▶</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.js"></script>
+<script src="phaserClaw.js"></script>
+
+</body>
 </html>
