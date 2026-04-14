@@ -8,7 +8,8 @@ const config = {
         default: "arcade",
         arcade: { gravity: { y: 800 }, debug: false }
     },
-    scene: { create, update }
+    // Added 'preload' to the scene config
+    scene: { preload, create, update } 
 };
 
 const game = new Phaser.Game(config);
@@ -22,6 +23,11 @@ let timeLeft = 5;
 let timerRunning = false;
 let moveDir = 0;
 
+// NEW: Load the fortune cookie image
+function preload() {
+    this.load.image('cookie', '../assets/image/fortune.cookie.png');
+}
+
 function create() {
     const scene = this;
 
@@ -29,10 +35,17 @@ function create() {
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
     this.physics.add.existing(floor, true); 
 
-    // 2. BALLS (Sized and physics-ready)
+    // 2. COOKIES (Replacing circles with Sprites)
     for (let i = 0; i < 22; i++) {
-        let ball = this.add.circle(Phaser.Math.Between(40, 260), Phaser.Math.Between(240, 310), 16, Phaser.Display.Color.RandomRGB().color);
-        this.physics.add.existing(ball);
+        let x = Phaser.Math.Between(40, 260);
+        let y = Phaser.Math.Between(240, 310);
+        
+        // Add as a sprite instead of a circle
+        let ball = this.physics.add.sprite(x, y, 'cookie');
+        
+        // Scale the image to fit the game (adjust 0.08 if needed)
+        ball.setScale(0.05); 
+        
         ball.body.setBounce(0.2).setCollideWorldBounds(true);
         this.physics.add.collider(ball, floor);
         this.physics.add.collider(ball, toys);
@@ -53,29 +66,29 @@ function create() {
 }
 
 function update() {
-    // Keep assembly connected
     const tx = cable.x;
     const ty = cable.height;
     joint.setPosition(tx, ty);
     armL.setPosition(tx - 10, ty + 15);
     armR.setPosition(tx + 10, ty + 15);
 
-    // Smooth Glide
     if (!isBusy && moveDir !== 0) {
         cable.x = Phaser.Math.Clamp(cable.x + (moveDir * 3.5), 35, 265);
     }
 
-    // Prize following
     if (grabbed) {
         grabbed.x = tx;
         grabbed.y = ty + 22;
-        // Realistic mid-air drop chance (0.2% per frame while lifting/moving)
+        // Keep the cookie's physics body in sync while grabbed
+        grabbed.body.setVelocity(0); 
+        
         if (isBusy && Math.random() < 0.002) {
             grabbed.body.setAllowGravity(true);
             grabbed = null;
         }
     }
 }
+
 
 function startCountdown(scene) {
     if (timerRunning || isBusy) return;
