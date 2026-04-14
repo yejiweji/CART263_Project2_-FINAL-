@@ -8,7 +8,6 @@ const config = {
         default: "arcade",
         arcade: { gravity: { y: 800 }, debug: false }
     },
-    // Added 'preload' to the scene config
     scene: { preload, create, update } 
 };
 
@@ -22,28 +21,34 @@ let coins = 10;
 let timeLeft = 5;
 let timerRunning = false;
 let moveDir = 0;
+let bgMusic; // Variable to hold the background music
 
-// NEW: Load the fortune cookie image
 function preload() {
+    // Load the fortune cookie image
     this.load.image('cookie', '../assets/image/fortune.cookie.png');
+    
+    // Load the daydream background music
+    this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3');
 }
 
 function create() {
     const scene = this;
 
+    // --- Audio Implementation ---
+    // Start playing the daydream music on a loop
+    bgMusic = this.sound.add('daydream', { volume: 0.5, loop: true });
+    bgMusic.play();
+
     // 1. HIGHER 3D FLOOR
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
     this.physics.add.existing(floor, true); 
 
-    // 2. COOKIES (Replacing circles with Sprites)
+    // 2. COOKIES 
     for (let i = 0; i < 22; i++) {
         let x = Phaser.Math.Between(40, 260);
         let y = Phaser.Math.Between(240, 310);
         
-        // Add as a sprite instead of a circle
         let ball = this.physics.add.sprite(x, y, 'cookie');
-        
-        // Scale the image to fit the game (adjust 0.08 if needed)
         ball.setScale(0.05); 
         
         ball.body.setBounce(0.2).setCollideWorldBounds(true);
@@ -79,7 +84,6 @@ function update() {
     if (grabbed) {
         grabbed.x = tx;
         grabbed.y = ty + 22;
-        // Keep the cookie's physics body in sync while grabbed
         grabbed.body.setVelocity(0); 
         
         if (isBusy && Math.random() < 0.002) {
@@ -89,6 +93,7 @@ function update() {
     }
 }
 
+// ... the rest of your functions (startCountdown, executeGrab, returnToHome) remain unchanged
 
 function startCountdown(scene) {
     if (timerRunning || isBusy) return;
