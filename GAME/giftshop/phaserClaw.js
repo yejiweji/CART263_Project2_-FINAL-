@@ -21,27 +21,28 @@ let coins = 10;
 let timeLeft = 5;
 let timerRunning = false;
 let moveDir = 0;
-let bgMusic, buttonSound; // Added buttonSound variable 
 
 function preload() {
     // Load images
     this.load.image('cookie', '../assets/image/fortune.cookie.png');
     
     // Load audio assets
-    this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3');
-    // NEW: Load the button sound effect 
-    this.load.audio('buttonClick', '../assets/sound/button.mp3');
+    this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3'); 
+    this.load.audio('buttonClick', '../assets/sound/button.mp3'); 
+    // NEW: Load the claw machine mechanical sound
+    this.load.audio('clawMove', '../assets/sound/claw.mp3'); 
 }
 
 function create() {
     const scene = this;
 
-    // --- Audio Implementation ---
+    // --- Audio Initialization ---
     bgMusic = this.sound.add('daydream', { volume: 0.3, loop: true });
     bgMusic.play();
 
-    // NEW: Initialize the button sound effect 
     buttonSound = this.sound.add('buttonClick', { volume: 0.2 });
+    // NEW: Initialize the claw sound (Cleaned up typo)
+    clawSound = this.sound.add('clawMove', { volume: 0.5 });
 
     // 1. HIGHER 3D FLOOR
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
@@ -51,10 +52,8 @@ function create() {
     for (let i = 0; i < 22; i++) {
         let x = Phaser.Math.Between(40, 260);
         let y = Phaser.Math.Between(240, 310);
-        
         let ball = this.physics.add.sprite(x, y, 'cookie');
         ball.setScale(0.05); 
-        
         ball.body.setBounce(0.2).setCollideWorldBounds(true);
         this.physics.add.collider(ball, floor);
         this.physics.add.collider(ball, toys);
@@ -70,7 +69,7 @@ function create() {
     // 4. INPUTS WITH SOUND EFFECTS 
     document.getElementById("leftBtn").onmousedown = () => { 
         if(!isBusy) { 
-            buttonSound.play(); // Play sound on left click 
+            buttonSound.play(); 
             moveDir = -1; 
             startCountdown(scene); 
         }
@@ -78,7 +77,7 @@ function create() {
     
     document.getElementById("rightBtn").onmousedown = () => { 
         if(!isBusy) { 
-            buttonSound.play(); // Play sound on right click 
+            buttonSound.play(); 
             moveDir = 1; 
             startCountdown(scene); 
         }
@@ -86,9 +85,10 @@ function create() {
 
     window.addEventListener('mouseup', () => { moveDir = 0; });
     
+    // Cleaned up duplicate dropBtn logic
     document.getElementById("dropBtn").onclick = () => { 
         if (!isBusy) {
-            buttonSound.play(); // Play sound on grab click 
+            buttonSound.play(); 
             executeGrab(scene); 
         }
     };
@@ -117,7 +117,6 @@ function update() {
     }
 }
 
-// ... the rest of your functions (startCountdown, executeGrab, returnToHome) remain unchanged
 
 function startCountdown(scene) {
     if (timerRunning || isBusy) return;
@@ -135,6 +134,10 @@ function startCountdown(scene) {
 function executeGrab(scene) {
     if (isBusy || coins <= 0) return;
     isBusy = true;
+    
+    // Correctly placed: Sound starts immediately
+    clawSound.play();
+
     coins--;
     document.getElementById("coinCount").innerText = "🪙 Coins: " + coins;
 
@@ -144,7 +147,6 @@ function executeGrab(scene) {
         duration: 1000,
         ease: 'Cubic.easeIn',
         onComplete: () => {
-            // Grab check with success rate (30%)
             if (Math.random() < 0.3) {
                 for (let t of toys) {
                     if (t.active && Phaser.Math.Distance.Between(t.x, t.y, cable.x, cable.height + 15) < 35) {
