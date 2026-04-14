@@ -14,10 +14,16 @@ const config = {
 const game = new Phaser.Game(config);
 
 const fortunes = [
-    "Your heritage is the 'aesthetic' for their new brand.",
-    "A great relocation is in your stars (and your lease).",
-    "Culture is a gift shop item when the rent goes up.",
-    "The claw of progress takes the cookie and leaves the crumbs."
+    "You are fishing for a souvenir in a neighborhood that drowned to make room for you.",
+    "This cookie was baked in a kitchen where the language spoken is no longer allowed on the lease.",
+    "Are you preserving this culture, or are you just picking through the remains?",
+    "Am I profitable enough for you yet, or do I need to be sweeter?",
+    "I’ve been translated, edited, and packaged. Do you still recognize me?",
+    "You paid a coin for my secrets. I hope they fit your aesthetic.",
+    "I have been hollowed out so you could fill me with your own expectations. Do I taste like home?",
+    "My value is determined by your curiosity. Please, keep looking at me.",
+    "Am I easier to swallow now that the struggle has been removed from the recipe?",
+    "You are winning the game, but I am the one losing the lease. Don't stop now."
 ];
 
 let cable, joint, armL, armR;
