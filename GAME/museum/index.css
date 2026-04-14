@@ -212,7 +212,7 @@ body {
   padding: 5px 10px;        /* space around the text */
   border-radius: 5px;       /* rounded corners */
   bottom: 700px;
-  left: -440px;
+  left: -900px;
 
   border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
   box-shadow: 5px 5px 15px rgba(106, 0, 0, 0.7); /* drop shadow */
@@ -227,8 +227,8 @@ body {
   background: rgba(204, 2, 2, 0.674); /* semi-transparent background */
   padding: 5px 10px;        /* space around the text */
   border-radius: 5px;       /* rounded corners */
-  bottom: 700px;
-  left: 560px;
+  bottom: 1000px;
+  left: -150px;
 
   border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
   box-shadow: 5px 5px 15px rgba(66, 2, 2, 0.7); /* drop shadow */
@@ -237,17 +237,17 @@ body {
 #qipao_mannequin{
   position: absolute;
   width: auto;
-  height: 70vh;       
-  bottom: 250px;  
-  left: -135px;       
+  height: 65vh;       
+  bottom: 350px;  
+  left: -500px;       
 }
 
 #hanbok_mannequin {
   position: absolute;
   width: auto;
-  height: 105vh;   
-  bottom: 89px;  
-  left: 590px;      
+  height: 65vh;   
+  bottom: 350px;  
+  left: 300px;      
 }
 
 .protest-revolution-regular {
@@ -266,8 +266,8 @@ body {
   padding: 100px 8px;        /* space around the text */
   border-radius: 3px;       /* rounded corners */
   
-  bottom: 460px;
-  left: 1560px;
+  bottom: 600px;
+  left: 1500px;
 
   border: 4px solid rgba(213, 189, 6, 0.983);   /* black rimmed border */
   box-shadow: 5px 5px 15px rgba(102, 0, 0, 0.429); /* drop shadow */
@@ -278,32 +278,32 @@ body {
   position: absolute;
   width: auto;
   height: 70vh;       
-  bottom: 300px;  
-  left: -50px;       
+  bottom: 400px;  
+  left: -700px;       
 }
 
 #square_frame_image{
   position: absolute;
-  width: 488px;
-  height: 374px;       
-  bottom: 517px;  
-  left: 209px; 
+  width: 605px;
+  height: 450px;       
+  bottom: 675px;  
+  left: -380px; 
 }
 
 #frame_circle{
   position: absolute;
   width: auto;
   height: 60vh;       
-  bottom: 340px;  
-  left: 1150px; 
+  bottom: 400px;  
+  left: 1900px; 
 }
 /* add blur psy image*/
 #circle_frame_image{
   position: absolute;
   width: auto;
   height: 37vh;       
-  bottom: 425px;  
-  left: 1430px; 
+  bottom: 500px;  
+  left: 2000px; 
 }
 
 /* Shared container styles */
@@ -317,7 +317,7 @@ body {
 
 /* Positioning for the Korean door */
 #korean-door-box {
-  left: 75px;
+  left: 700px;
   width: 20vw;
 }
 /* Update your korean_store rule */
@@ -332,7 +332,7 @@ body {
 }
 /* Positioning for the Chinese door */
 #chinese-door-box {
-  left: 900px; 
+  left: 1700px; 
   width: 20vw;
 }
 
@@ -373,50 +373,52 @@ body {
 #frame_square2{
   position: absolute;
   width: auto;
-  height: 50vh;       
+  height: 60vh;       
   bottom: 380px;  
-  left: 180px;       
+  left: 100px;       
 }
 
+/* jackson yee */
 #square2_frame_image{
   position: absolute;
-  width: auto;
+  width: 500px;
   height: 30vh;       
-  bottom: 500px;  
-  left: 375px; 
+  bottom: 620px;  
+  left: 385px; 
 }
 
 #frame_circle2{
   position: absolute;
   width: auto;
   height: 60vh;       
-  bottom: 340px;  
-  left: 540px;       
+  bottom: 430px;  
+  left: 1000px;       
 }
 
-/* add blur squidgames image*/
+/* hojeon */
 #circle2_frame_image{
   position: absolute;
   width: auto;
   height: 37vh;       
-  bottom: 425px;  
-  left: 820px; 
+  bottom: 538px;  
+  left: 1100px; 
 }
 
 #frame_square3{
   position: absolute;
   width: auto;
-  height: 50vh;       
+  height: 60vh;       
   bottom: 380px;  
-  left: 1040px;       
+  left: 1350px;       
 }
 
+/* jackie chan */
 #square3_frame_image{
   position: absolute;
   width: auto;
-  height: 25vh;       
-  bottom: 550px;  
-  left: 1220px; 
+  height: 28vh;       
+  bottom: 630px;  
+  left: 1625px; 
 }
 
 #korean_store_image{
@@ -431,17 +433,18 @@ body {
 #frame_square4{
   position: absolute;
   width: auto;
-  height: 75vh;       
-  bottom: 289px;  
-  left: 450px;       
+  height: 70vh;       
+  bottom: 350px;  
+  left: 630px;       
 }
 
+/* chinese actress */
 #square4_frame_image{
   position: absolute;
   width: auto;
-  height: 35vh;       
-  bottom: 550px;  
-  left: 747px; 
+  height: 34vh;       
+  bottom: 630px;  
+  left: 940px; 
 }
 
 /* adding the blur effect*/
@@ -481,5 +484,5 @@ body {
   width: auto;
   height: 75vh;       
   bottom: 324px;  
-  left: -480px;       
+  left: -580px;       
 }
