@@ -58,7 +58,11 @@ function create() {
     clawSound = this.sound.add('clawMove', { volume: 0.5 });
     // NEW: Initialize the winning sound
     winSound = this.sound.add('winning', { volume: 1.5 });
-
+    
+    document.getElementById("closeModalBtn").onclick = () => {
+    buttonSound.play(); // This adds a nice click sound too
+    document.getElementById("fortuneModal").style.display = "none";
+    };
     // 1. HIGHER 3D FLOOR
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
     this.physics.add.existing(floor, true); 
@@ -189,15 +193,20 @@ function returnToHome(scene) {
         duration: 1200,
         onComplete: () => {
             if (grabbed) {
-                // Play the winning sound effect right when the prize is collected
                 winSound.play();
+                
+                // Get the fortune
+                let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+                
+                // Trigger the Custom Modal
+                document.getElementById("fortuneText").innerText = randomFortune;
+                document.getElementById("fortuneModal").style.display = "flex";
 
+                // Cleanup
                 grabbed.destroy();
                 grabbed = null;
                 coins += 2;
                 document.getElementById("coinCount").innerText = "🪙 Coins: " + coins;
-                let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-                alert("FORTUNE: " + randomFortune);;
             }
             isBusy = false;
         }
