@@ -13,6 +13,13 @@ const config = {
 
 const game = new Phaser.Game(config);
 
+const fortunes = [
+    "Your heritage is the 'aesthetic' for their new brand.",
+    "A great relocation is in your stars (and your lease).",
+    "Culture is a gift shop item when the rent goes up.",
+    "The claw of progress takes the cookie and leaves the crumbs."
+];
+
 let cable, joint, armL, armR;
 let toys = [];
 let grabbed = null;
@@ -21,16 +28,17 @@ let coins = 10;
 let timeLeft = 5;
 let timerRunning = false;
 let moveDir = 0;
+let bgMusic, buttonSound, clawSound, winSound; 
 
 function preload() {
-    // Load images
     this.load.image('cookie', '../assets/image/fortune.cookie.png');
     
-    // Load audio assets
-    this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3'); 
-    this.load.audio('buttonClick', '../assets/sound/button.mp3'); 
-    // NEW: Load the claw machine mechanical sound
-    this.load.audio('clawMove', '../assets/sound/claw.mp3'); 
+    // Audio assets
+    this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3');
+    this.load.audio('buttonClick', '../assets/sound/button.mp3');
+    this.load.audio('clawMove', '../assets/sound/claw.mp3');
+    // NEW: Load the winning sound
+    this.load.audio('winning', '../assets/sound/winning.mp3'); 
 }
 
 function create() {
@@ -41,8 +49,9 @@ function create() {
     bgMusic.play();
 
     buttonSound = this.sound.add('buttonClick', { volume: 0.2 });
-    // NEW: Initialize the claw sound (Cleaned up typo)
     clawSound = this.sound.add('clawMove', { volume: 0.5 });
+    // NEW: Initialize the winning sound
+    winSound = this.sound.add('winning', { volume: 1.5 });
 
     // 1. HIGHER 3D FLOOR
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
@@ -174,11 +183,15 @@ function returnToHome(scene) {
         duration: 1200,
         onComplete: () => {
             if (grabbed) {
+                // NEW: Play the winning sound effect right when the prize is collected
+                winSound.play();
+
                 grabbed.destroy();
                 grabbed = null;
                 coins += 2;
                 document.getElementById("coinCount").innerText = "🪙 Coins: " + coins;
-                alert("YOU WON! 🎁");
+                let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+                alert("FORTUNE: " + randomFortune);;
             }
             isBusy = false;
         }
