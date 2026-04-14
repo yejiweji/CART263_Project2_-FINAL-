@@ -8,7 +8,7 @@ body {
     height: 100vh;
     
     /* FIX: Use ../../ to go up two levels to the root */
-    background-image: url('../../Bridge-Shop.webp');
+    background-image: url('../assets/image/Bridge-Shop.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
