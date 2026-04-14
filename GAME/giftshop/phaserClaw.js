@@ -150,7 +150,7 @@ function executeGrab(scene) {
     if (isBusy || coins <= 0) return;
     isBusy = true;
     
-    // Correctly placed: Sound starts immediately
+    // Sound starts immediately
     clawSound.play();
 
     coins--;
@@ -189,7 +189,7 @@ function returnToHome(scene) {
         duration: 1200,
         onComplete: () => {
             if (grabbed) {
-                // NEW: Play the winning sound effect right when the prize is collected
+                // Play the winning sound effect right when the prize is collected
                 winSound.play();
 
                 grabbed.destroy();
