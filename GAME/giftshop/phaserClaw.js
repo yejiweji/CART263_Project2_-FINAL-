@@ -129,7 +129,7 @@ function update() {
         grabbed.y = ty + 22;
         grabbed.body.setVelocity(0); 
         
-        if (isBusy && Math.random() < 0.002) {
+        if (isBusy && Math.random() < 0.008) {
             grabbed.body.setAllowGravity(true);
             grabbed = null;
         }
@@ -166,9 +166,9 @@ function executeGrab(scene) {
         duration: 1000,
         ease: 'Cubic.easeIn',
         onComplete: () => {
-            if (Math.random() < 0.3) {
+            if (Math.random() < 0.99) {
                 for (let t of toys) {
-                    if (t.active && Phaser.Math.Distance.Between(t.x, t.y, cable.x, cable.height + 15) < 35) {
+                    if (t.active && Phaser.Math.Distance.Between(t.x, t.y, cable.x, cable.height + 15) < 50) {
                         grabbed = t;
                         t.body.setAllowGravity(false).setVelocity(0);
                         break;
