@@ -128,8 +128,8 @@ function update() {
         grabbed.x = tx;
         grabbed.y = ty + 22;
         grabbed.body.setVelocity(0); 
-        
-        if (isBusy && Math.random() < 0.008) {
+       //DROP CHANCE LOGIC 
+        if (isBusy && Math.random() < 0.005) {
             grabbed.body.setAllowGravity(true);
             grabbed = null;
         }
@@ -158,7 +158,7 @@ function executeGrab(scene) {
     clawSound.play();
 
     coins--;
-    document.getElementById("coinCount").innerText = "🪙 Coins: " + coins;
+    document.getElementById("coinCount").innerText = "🪙 Coins: $" + coins;
 
     scene.tweens.add({
         targets: cable,
@@ -206,7 +206,7 @@ function returnToHome(scene) {
                 grabbed.destroy();
                 grabbed = null;
                 coins += 2;
-                document.getElementById("coinCount").innerText = "🪙 Coins: " + coins;
+                document.getElementById("coinCount").innerText = "🪙 Coins: $" + coins;
             }
             isBusy = false;
         }
