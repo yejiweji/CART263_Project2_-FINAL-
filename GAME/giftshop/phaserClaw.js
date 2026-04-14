@@ -21,23 +21,27 @@ let coins = 10;
 let timeLeft = 5;
 let timerRunning = false;
 let moveDir = 0;
-let bgMusic; // Variable to hold the background music
+let bgMusic, buttonSound; // Added buttonSound variable 
 
 function preload() {
-    // Load the fortune cookie image
+    // Load images
     this.load.image('cookie', '../assets/image/fortune.cookie.png');
     
-    // Load the daydream background music
+    // Load audio assets
     this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3');
+    // NEW: Load the button sound effect 
+    this.load.audio('buttonClick', '../assets/sound/button.mp3');
 }
 
 function create() {
     const scene = this;
 
     // --- Audio Implementation ---
-    // Start playing the daydream music on a loop
-    bgMusic = this.sound.add('daydream', { volume: 0.5, loop: true });
+    bgMusic = this.sound.add('daydream', { volume: 0.3, loop: true });
     bgMusic.play();
+
+    // NEW: Initialize the button sound effect 
+    buttonSound = this.sound.add('buttonClick', { volume: 0.2 });
 
     // 1. HIGHER 3D FLOOR
     const floor = this.add.rectangle(150, 350, 300, 60, 0xffc1dd);
@@ -63,11 +67,31 @@ function create() {
     armL = this.add.rectangle(140, 75, 6, 30, 0xffffff).setAngle(20);
     armR = this.add.rectangle(160, 75, 6, 30, 0xffffff).setAngle(-20);
 
-    // 4. INPUTS
-    document.getElementById("leftBtn").onmousedown = () => { if(!isBusy) { moveDir = -1; startCountdown(scene); }};
-    document.getElementById("rightBtn").onmousedown = () => { if(!isBusy) { moveDir = 1; startCountdown(scene); }};
+    // 4. INPUTS WITH SOUND EFFECTS 
+    document.getElementById("leftBtn").onmousedown = () => { 
+        if(!isBusy) { 
+            buttonSound.play(); // Play sound on left click 
+            moveDir = -1; 
+            startCountdown(scene); 
+        }
+    };
+    
+    document.getElementById("rightBtn").onmousedown = () => { 
+        if(!isBusy) { 
+            buttonSound.play(); // Play sound on right click 
+            moveDir = 1; 
+            startCountdown(scene); 
+        }
+    };
+
     window.addEventListener('mouseup', () => { moveDir = 0; });
-    document.getElementById("dropBtn").onclick = () => { if (!isBusy) executeGrab(scene); };
+    
+    document.getElementById("dropBtn").onclick = () => { 
+        if (!isBusy) {
+            buttonSound.play(); // Play sound on grab click 
+            executeGrab(scene); 
+        }
+    };
 }
 
 function update() {
