@@ -6,4 +6,4 @@ Nancy He 40285234
 
 ACCESS THE MUSEUM HERE:
 </BR>
-https://yejiweji.github.io/CART263_Project2_-FINAL-/
+https://yejiweji.github.io/CART263_
