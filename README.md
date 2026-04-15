@@ -6,12 +6,12 @@ Nancy He 40285234
 
 ACCESS THE MUSEUM HERE:
 </BR>
-(https://yejiweji.github.io/CART263_Project2_-FINAL-/)
+https://yejiweji.github.io/CART263_Project2_-FINAL-/
 
 </br>
 ACCESS PROJECT DESCRIPTION HERE:
-(https://docs.google.com/document/d/1_i0tMKFVM6RaqxTZeA5Fk5nH7B8yo8hcgy15Cuavckg/edit?usp=sharing)
+https://docs.google.com/document/d/1_i0tMKFVM6RaqxTZeA5Fk5nH7B8yo8hcgy15Cuavckg/edit?usp=sharing
 </br>
 </br>
 ACCESS PROJECT VIDEO HERE: </br>
-(https://do)
+https://youtu.be/v27Ph0MIM_M
