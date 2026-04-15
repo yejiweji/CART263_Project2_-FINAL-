@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Audio Setup ---
-    // Paths are relative to the location of museum.js (inside GAME/museum/)
     const koreanBell = new Audio('../assets/sound/no29bell.mp3');
     const chineseBell = new Audio('../assets/sound/chinesebell.mp3');
 
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             koreanBell.play();
         });
 
-        // Existing click logic to show store
+        // Click logic to show store
         koreanDoorBox.addEventListener('click', () => {
             closedKoreanDoor.style.display = 'none';
             openKoreanDoor.style.display = 'none';
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Chinese Door Logic ---
+    //  Chinese Door Logic
     const chineseDoorBox = document.getElementById('chinese-door-box');
 
     if (chineseDoorBox) {
@@ -36,6 +35,5 @@ document.addEventListener('DOMContentLoaded', () => {
             chineseBell.play();
         });
         
-        // You can add similar click logic here if needed for the Chinese door
     }
 });

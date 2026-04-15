@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("confirmationModal").style.display = "block"; // Show modal ONLY on click
     });
 
-    // 2. Logic for clicking "Welcome to our museum" (The Redirect)
+    // 2. Logic for clicking "Welcome to our museum" (redirect)
     enterButton.addEventListener("click", function() {
         window.location.href = "museum/index.html"; 
     });
 
 });
 
-// 3. This function must be OUTSIDE the DOMContentLoaded block so the HTML "onclick" can find it
+//Function must be OUTSIDE the DOMContentLoaded block so the HTML "onclick" can find it
 function closeModal() {
     document.getElementById("confirmationModal").style.display = "none";
 }

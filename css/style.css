@@ -82,7 +82,7 @@ button:hover {
     cursor: pointer;
 }
 
-/* Modal */
+/* Modal (popup) */
 .modal {
     display: none;
     position: fixed;

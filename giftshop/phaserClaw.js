@@ -43,14 +43,13 @@ function preload() {
     this.load.audio('daydream', '../assets/sound/massobeats - daydream (freetouse.com).mp3');
     this.load.audio('buttonClick', '../assets/sound/button.mp3');
     this.load.audio('clawMove', '../assets/sound/claw.mp3');
-    // NEW: Load the winning sound
     this.load.audio('winning', '../assets/sound/winning.mp3'); 
 }
 
 function create() {
     const scene = this;
 
-    // --- Audio Initialization ---
+    // Audio Initialization
     bgMusic = this.sound.add('daydream', { volume: 0.3, loop: true });
     bgMusic.play();
 
