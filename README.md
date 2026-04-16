@@ -1,4 +1,4 @@
-# CART263_Project2
+# CART263 Project 2
 </BR>[CART 263] Project 2 
 </BR>
 Yejin (Aurora) Oh 40229957 <BR>
